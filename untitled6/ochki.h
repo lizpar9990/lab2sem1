@@ -12,6 +12,8 @@ private :
     int size;
 
 public:
+    friend istream& operator >>(istream& in, Ochki& r);
+        friend ostream& operator <<(ostream& out, const Ochki& r);
     string _color() const{
         return color;
                          }

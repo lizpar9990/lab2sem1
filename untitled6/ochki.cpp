@@ -5,6 +5,22 @@
 #include "Ochkiit.h"
 
 using namespace std;
+ostream &operator <<(ostream &out, const Ochki &r){
+    out << r.color << " " << r.country << " " << r.price << " " << r.size;
+        return out;
+}
+istream& operator >> (istream& in, Ochki& r) {
+    cout << "color=";
+    in >> r.color;
+    cout << "country=";
+    in >> r.country;
+    cout << "price=";
+    in >> r.price;
+    cout << "size=";
+    in >> r.size;
+
+    return in;
+}
 
 void Ochkiit :: _save (Ochki* arr, int n){
     ofstream out("a.txt");
@@ -41,15 +57,20 @@ int i=0;
     int _size;
     cin >>_size;
     arr[i].setSize(_size);}
+
     _save(arr,n);
     delete [] arr;
     return;
     }
 
-void Ochkiit :: _load (int &n){
+ Ochki * _load(int &n){
     ifstream in("a.txt");
-    if (!in.is_open())
-        cout << "неверное значение";
+    if (!in.is_open()){
+        return nullptr;
+    in >>n;
+    if(n<=0)
+        return nullptr;
+
     Ochki *arr = new Ochki[n];
     for (int i=0; i<n; i++){
         string _color;
@@ -60,8 +81,10 @@ void Ochkiit :: _load (int &n){
          arr[i].setColor(_color);
           arr[i].setCountry(_country);
            arr[i].setPrice(_price);
-            arr[i].setSize(_size);}
-    in.close();}
+            arr[i].setSize(_size);
+    }
+    in.close();
+    return arr;}}
 
 
 void Ochkiit ::_search (Ochki *arr,int n){
@@ -127,13 +150,14 @@ void Ochkiit ::_search (Ochki *arr,int n){
         cout<<"error!\n";
   break;}}
 
-   void Ochkiit :: _insert(Ochki* arr, int n){
+   void Ochkiit::_insert(Ochki* arr, int n){
        string r;
        string t;
       cout<<"введите значение color, которое хотите заменить"<<endl;
       cin>>t;
       cout<<"введите значение color, которым хотите заменить"<< t<<endl;
       cin>>r;
+      arr=_load(n);
 
       for (int i = 0; i < n; i++)
       {
@@ -147,10 +171,52 @@ void Ochkiit ::_search (Ochki *arr,int n){
 
 
    void Ochkiit :: _delete(Ochki* arr,int n){
+       int t;
+       cout<<"введите номер строки, которую хотите удалить"<<endl;
+       cin >> t;
+       arr=_load(n);
 
-
-
+       for (int i = 0; i < t; i++)
+       {
+          cout<<arr[i]._color(), arr[i]._country(), arr[i]._price(), arr[i]._size();}
+       for (int i = 0; i < n; i++)
+       {
+          cout<<arr[i]._color(), arr[i]._country(), arr[i]._price(), arr[i]._size();}
    }
+
+
+   void Ochkiit :: _add(Ochki* arr,int n){
+       int t;
+       arr=_load(n);
+       cout<< "color=";
+       string _color;
+       cin >>_color;
+       arr[n].setColor(_color);
+
+       cout<< "country=";
+       string _country;
+       cin >>_country;
+       arr[n].setCountry(_country);
+
+       cout<< "color=";
+       int _price;
+       cin >>_price;
+       arr[n].setPrice(_price);
+
+       cout<< "color=";
+       int _size;
+       cin >>_size;
+       arr[n].setSize(_size);
+
+       _save(arr,n);
+       delete [] arr;
+       return;}
+
+
+
+
+
+
 
 
 

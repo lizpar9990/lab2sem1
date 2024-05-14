@@ -63,7 +63,7 @@ int i=0;
     return;
     }
 
- Ochki * _load(int &n){
+ Ochki * Ochkiit ::_load(int &n){
     ifstream in("a.txt");
     if (!in.is_open()){
         return nullptr;
@@ -210,7 +210,7 @@ void Ochkiit ::_search (Ochki *arr,int n){
 
        _save(arr,n);
        delete [] arr;
-       return;}
+       }
 
 
 

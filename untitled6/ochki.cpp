@@ -9,6 +9,7 @@ ostream &operator <<(ostream &out, const Ochki &r){
     out << r.color << " " << r.country << " " << r.price << " " << r.size;
         return out;
 }
+
 istream& operator >> (istream& in, Ochki& r) {
     cout << "color=";
     in >> r.color;
@@ -186,7 +187,7 @@ void Ochkiit ::_search (Ochki *arr,int n){
 
 
    void Ochkiit :: _add(Ochki* arr,int n){
-       int t;
+
        arr=_load(n);
        cout<< "color=";
        string _color;

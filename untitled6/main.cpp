@@ -15,25 +15,25 @@ int main(){
         switch (key){
 
 
-         case 1:{
+         case 1:
 
             int n;
              cout <<"n=";
              cin >> n;
              if (n< 1)
                 cout << "неверное значение"<<endl;
-             break;
+             else
               Ochki *arr= new Ochki[n];
              Ochkiit::_create(arr, n);
               break;
-}
 
 
-        case 2:{
+
+        case 2:
             arr = Ochkiit:: _load (n);
             for (int i=0; i<n; i++)
                 cout << arr[i];
-            break;}
+            break;
 
 
         case 3:
@@ -69,7 +69,7 @@ int main(){
            for (int i=0; i<n; i++)
                cout<<arr[i]._color()<<" "<<arr[i]._country()<<" "<<arr[i]._price()<<" "<<arr[i]._size()<<endl;
 
-           break;
+            break;
 
 
 

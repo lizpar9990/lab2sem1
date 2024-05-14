@@ -11,12 +11,12 @@ int main(){
     while (stop!=1){
         int key;
         cout<<"1-create, 2-load, 3-save, 4-search, 5-insert, 6-delete, 7-add, 8- print\n"<<endl;
-        cin >> key;
+       cin >> key;
         switch (key){
 
 
          case 1:{
-           int i=0;
+
             int n;
              cout <<"n=";
              cin >> n;
@@ -79,4 +79,5 @@ int main(){
             break;
                 }
         }
-    return 0;}
+    return 0;
+}
